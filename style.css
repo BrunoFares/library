@@ -33,7 +33,7 @@ th, td {
     font-weight: 100;
 }
 
-th {
+table th {
     font-weight: 700;
     background-color: rgb(213, 213, 213);
 }
@@ -132,4 +132,19 @@ input {
     border: 0;
     background-color: rgb(225, 225, 225);
     padding-left: 0.7rem;
+}
+
+th:last-of-type,
+td:last-of-type {
+    width: 2.5rem;
+    padding: 0;
+}
+
+img {
+    height: 1.5rem;
+    opacity: 0;
+}
+
+img:hover {
+    opacity: 1;
 }

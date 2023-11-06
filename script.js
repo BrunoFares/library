@@ -32,7 +32,7 @@ function addBookToLibrary() {
 }
 
 function addTableRow(book) {
-    table.innerHTML += `<tr><td>${book.title}</td><td>${book.author}</td><td>${book.numPages}</td><td>${book.status}</td></tr>`;
+    table.innerHTML += `<tr><td>${book.title}</td><td>${book.author}</td><td>${book.numPages}</td><td>${book.status}</td><td><img src='redcross.png'></td></tr>`;
 }
 
 openDialog.addEventListener("click", () => {
