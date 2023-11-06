@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="script.js" defer></script>
+    <title>Library</title>
+</head>
+<body>
+    <div class="header">
+        <h1>The Library</h1>
+        <p>You can search for a book in our repertory, read it, and discard it!</p>
+        <button>Look for a book</button>
+    </div>
+
+    <div class="table">
+        <table>
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Number of pages</th>
+                <th>Status</th>
+            </tr>
+        </table>
+    </div>
+
+    <dialog>
+        <form action="GET">
+            <div>
+                <h1>Look for a book</h1>
+                <button value="cancel" id="close">X</button>
+            </div>
+
+            <fieldset>
+
+                <ul>
+                    <li>
+                        <label for="title">Title</label>
+                        <input type="text" id="title" name="title" required>
+                    </li>
+                    
+                    <li>
+                        <label for="author">Author</label>
+                        <input type="text" id="author" name="author" required>
+                    </li>
+                    
+                    <li>
+                        <label for="numOfPages">Number of pages</label>
+                        <input type="text" id="numOfPages" name="numOfPages" required>
+                    </li>
+                    <li>
+                        <label for="status">Have you read this book?</label>
+                        <input type="checkbox" id="status" name="status">
+                    </li>
+                </ul>
+
+                <button type="submit" value="default" id="confirmBtn">Add Book</button>
+            </fieldset>
+        </form>
+    </dialog>
+
+    <output></output>
+</body>
+</html>

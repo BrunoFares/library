@@ -1,0 +1,135 @@
+* {
+    text-align: center;
+    margin: 0;
+    font-family: San Francisco, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+@font-face {
+    font-family: "San Francisco";
+    src: url("font/sfuitext-regular-webfont.woff") format("woff"),
+    url("SFUIText-Regular.otf") format("opentype"),
+    url("font/specimen_files/specimen_stylesheet.css") format("svg");
+}  
+
+div.table {
+    display: flex;
+}
+
+div.header {
+    background-color: rgb(222, 222, 222);
+}
+
+table {
+    margin: 3rem auto;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 0.5rem 4rem;
+    font-size: 1.5rem;
+    background-color: rgb(255, 255, 255);
+    font-weight: 100;
+}
+
+th {
+    font-weight: 700;
+    background-color: rgb(213, 213, 213);
+}
+
+div.header h1 {
+    font-size: 3rem;
+    padding: 3rem 0;
+}
+
+p {
+    font-size: 1.5rem;
+    padding: 0 0 2rem;
+}
+
+div.header button {
+    margin: 0 0 3rem;
+}
+
+button {
+    border: 0;
+    font-size: 1.3rem;
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.5rem;
+    background-color: rgb(167, 167, 167);
+}
+
+button:hover {
+    background-color: rgb(97, 97, 97);
+    color: white;
+}
+
+button:active {
+    background-color: rgb(53, 53, 53);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+dialog {
+    position: absolute;
+    left: 20%;
+    top: 20%;
+    width: 60%;
+    border-radius: 1rem;
+}
+
+fieldset {
+    display: flex;
+    flex-direction: column;
+    border: 0;
+}
+
+ul li {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+}
+
+form h1 {
+    margin-right: auto;
+}
+
+form div {
+    display: flex;
+    align-items: center;
+    padding: 1rem 0;
+}
+
+ul {
+    padding: 0;
+}
+
+dialog button#close {
+    margin-left: auto;
+    margin: 0;
+}
+
+label {
+    text-align: left;
+    font-size: 1.4rem;
+    margin-bottom: 0.4rem;
+}
+
+dialog button#confirmBtn {
+    margin: 1.5rem auto;
+}
+
+input {
+    margin-bottom: 1.5rem;
+    text-align: left;
+    font-size: 1.2rem;
+    height: 2rem;
+    border-radius: 1rem;
+    border: 0;
+    background-color: rgb(225, 225, 225);
+    padding-left: 0.7rem;
+}
