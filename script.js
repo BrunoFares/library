@@ -15,11 +15,18 @@ bookStatus.value = "Not read";
 
 const myLibrary = [];
 
+let variableName = `cross${myLibrary.length}`;
+
 let Book = function(title, author, numPages, status) {
     this.title = bookTitle.value;
     this.author = bookAuthor.value;
     this.numPages = bookNumPages.value;
     this.status = bookStatus.value;
+}
+
+function addBookToLibrary() {
+    const book = new Book(bookTitle, bookAuthor, bookNumPages, bookStatus);
+    myLibrary.push(book);
 }
 
 bookStatus.addEventListener('click', () => {
@@ -29,15 +36,6 @@ bookStatus.addEventListener('click', () => {
         bookStatus.value = "Not read";
     }
 });
-
-function addBookToLibrary() {
-    const book = new Book(bookTitle, bookAuthor, bookNumPages, bookStatus);
-    myLibrary.push(book);
-}
-
-function addTableRow(book) {
-    table.innerHTML += `<tr><td>${book.title}</td><td>${book.author}</td><td>${book.numPages}</td><td>${book.status}</td><td><img src='redcross.png'></td></tr>`;
-}
 
 openDialog.addEventListener("click", () => {
     dialog.showModal();
@@ -57,7 +55,10 @@ newBook.addEventListener("click", (event) => {
         table.appendChild(tableHeader);
     }
 
-    addTableRow(myLibrary[myLibrary.length - 1]);
+    table.innerHTML += `<tr><td>${myLibrary[myLibrary.length - 1].title}</td><td>${myLibrary[myLibrary.length - 1].author}</td><td>${myLibrary[myLibrary.length - 1].numPages}</td><td>${myLibrary[myLibrary.length - 1].status}</td><td><img src='redcross.png' class='cross${myLibrary.length}'></td></tr>`;
+
+    variableName = `cross${myLibrary.length}`;
+    window[variableName] = document.querySelector(`img.cross${myLibrary.length}`);
 
     bookTitle.value = "";
     bookAuthor.value = "";
