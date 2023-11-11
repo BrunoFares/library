@@ -8,6 +8,9 @@ const bookStatus = document.querySelector("#status");
 const newBook = document.querySelector("#confirmBtn");
 const table = document.querySelector("table");
 
+const tableHeader = document.createElement("tr");
+tableHeader.innerHTML = "<tr><th>Title</th><th>Author</th><th>Number of pages</th><th>Status</th><th></th></tr>";
+
 bookStatus.value = "Not read";
 
 const myLibrary = [];
@@ -18,6 +21,7 @@ let Book = function(title, author, numPages, status) {
     this.numPages = bookNumPages.value;
     this.status = bookStatus.value;
 }
+
 bookStatus.addEventListener('click', () => {
     if (bookStatus.checked === true) {
         bookStatus.value = "Read";
@@ -48,9 +52,16 @@ newBook.addEventListener("click", (event) => {
     event.preventDefault();
     dialog.close();
     addBookToLibrary();
-    addTableRow(myLibrary[myLibrary.length-1]);
+
+    if (myLibrary.length === 1) {
+        table.appendChild(tableHeader);
+    }
+
+    addTableRow(myLibrary[myLibrary.length - 1]);
 
     bookTitle.value = "";
     bookAuthor.value = "";
     bookNumPages.value = "";
+    bookStatus.checked = false;
+    bookStatus.value = "Not read";
 });
