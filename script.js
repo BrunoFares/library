@@ -14,6 +14,8 @@ tableHeader.innerHTML = "<tr><th>Title</th><th>Author</th><th>Number of pages</t
 bookStatus.value = "Not read";
 
 const myLibrary = [];
+const rows = [];
+const images = [];
 
 let variableName1;
 let variableName2;
@@ -49,7 +51,9 @@ closeDialog.addEventListener("click", (event) => {
     dialog.close();
 });
 
+let index = 0;
 newBook.addEventListener("click", (event) => {
+    index++;
     event.preventDefault();
     dialog.close();
     addBookToLibrary();
@@ -58,15 +62,19 @@ newBook.addEventListener("click", (event) => {
         table.appendChild(tableHeader);
     }
 
-    table.innerHTML += `<tr class='row${myLibrary.length}'><td>${myLibrary[myLibrary.length - 1].title}</td><td>${myLibrary[myLibrary.length - 1].author}</td><td>${myLibrary[myLibrary.length - 1].numPages}</td><td>${myLibrary[myLibrary.length - 1].status}</td></tr>`;
+    var row = document.createElement('tr');
+    table.appendChild(row);
+    row.innerHTML = `<tr class='row${myLibrary.length}'><td>${myLibrary[myLibrary.length - 1].title}</td><td>${myLibrary[myLibrary.length - 1].author}</td><td>${myLibrary[myLibrary.length - 1].numPages}</td><td>${myLibrary[myLibrary.length - 1].status}</td></tr>`;
 
-    variableName1 = `cross${myLibrary.length}`;
-    window[variableName1] = document.querySelector(`img.cross${myLibrary.length}`);
-    tableRowButton.push(window[variableName1]);
+    var imageData = document.createElement('td');
+    var image = document.createElement('img');
+    image.src = "redcross.png";
 
-    variableName2 = `row${myLibrary.length}`;
-    window[variableName2] = document.querySelector(`tr.row${myLibrary.length}`);
-    tableRow.push(window[variableName2]);
+    row.appendChild(imageData);
+    imageData.appendChild(image);
+
+    rows.push(row);
+    images.push(image);
 
     bookTitle.value = "";
     bookAuthor.value = "";
