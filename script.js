@@ -22,6 +22,7 @@ newBook.addEventListener("click", event => {
 
     const currentBook = new Book();
     list.add(currentBook);
+    resetDialog();
     
     dialog.close();
 });
@@ -99,6 +100,13 @@ class ListBinding {
         this.myLibrary.splice(index, 1);
         this.update();
     }
+}
+
+function resetDialog() {
+    bookTitleDialog.value = "";
+    bookAuthorDialog.value = "";
+    bookPagesDialog.value = "";
+    bookStatusDialog.checked = false;
 }
 
 const list = new ListBinding(table);
