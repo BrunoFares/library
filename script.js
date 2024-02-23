@@ -3,28 +3,37 @@ const closeDialog = document.querySelector("button#close")
 const dialog = document.querySelector("dialog");
 const newBook = document.querySelector("#confirmBtn");
 
+const bookTitleDialog = document.querySelector('#title');
+const bookAuthorDialog = document.querySelector('#author');
+const bookPagesDialog = document.querySelector('#numOfPages');
+const bookStatusDialog = document.querySelector('#status');
+
 openDialog.addEventListener("click", () => {
     dialog.showModal();
 });
 
-closeDialog.addEventListener("click", (event) => {
+closeDialog.addEventListener("click", event => {
     event.preventDefault();
     dialog.close();
 });
 
-newBook.addEventListener("click", (event) => {
+newBook.addEventListener("click", event => {
     event.preventDefault();
+
+    const currentBook = new Book();
+    list.add(currentBook);
+    
     dialog.close();
 });
 
 const table = document.querySelector('table');
 
 class Book {
-    constructor(title, author, pages, read) {
-        this.title = title;
-        this.author = author;
-        this.pages = pages;
-        this.read = read;
+    constructor() {
+        this.title = bookTitleDialog.value;
+        this.author = bookAuthorDialog.value;
+        this.pages = bookPagesDialog.value;
+        this.read = bookStatusDialog.checked;
     }
 
     toggleRead(list) {
@@ -54,7 +63,7 @@ class ListBinding {
                     td.textContent = book.pages;
                     break;
                 case 3:
-                    td.textContent = book.read;
+                    td.textContent = book.read ? "Yes" : "No";
                     td.addEventListener('click', () => {book.toggleRead(list)});
                     break;
                 case 4:
@@ -91,8 +100,5 @@ class ListBinding {
         this.update();
     }
 }
-
-const b1 = new Book("Kante", "3ammo", 34, true);
-const b2 = new Book("Ngolo", "Capten", 2, false);
 
 const list = new ListBinding(table);
